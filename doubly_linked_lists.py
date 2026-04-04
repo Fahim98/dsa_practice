@@ -3,22 +3,27 @@ class Node:
         self.data = value
         self.prev = None
         self.next = None
-        
+
 if __name__ == "__main__":
-    head = Node(10)
+    n = int(input("Enter number of nodes: "))
     
-    head.next = Node(20)
-    head.next.prev = head
+    head = None
+    tail = None
     
-    head.next.next = Node(30)
-    head.next.next.prev = head.next
-    
-    head.next.next.next = Node(40)
-    head.next.next.next.prev = head.next.next
+    for i in range(n):
+        value = input(f"Enter value for node {i + 1}: ")
+        new_node = Node(value)
+        
+        if head is None:
+            head = new_node
+            tail = new_node
+        else:
+            new_node.prev = tail
+            tail.next = new_node
+            tail = new_node
     
     temp = head
     while temp is not None:
-        print(temp.data, end="")
         print(temp.data, end="")
         if temp.next is not None:
             print(" <->", end="")
