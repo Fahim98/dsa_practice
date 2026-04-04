@@ -43,4 +43,4 @@ while current:
     current = current.next
 print("None")
 
-#doubly linked lists
+
